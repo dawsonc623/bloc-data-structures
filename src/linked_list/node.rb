@@ -1,17 +1,10 @@
+# A Node is a container for an item in a LinkedList that also contains a
+# reference to the next Node in the LinkedList.
 class Node
-    def initialize(item)
-        @item = item
-    end
+  attr_reader :item
+  attr_accessor :next_node
 
-    def item
-        @item
-    end
-
-    def next_node
-        @next_node
-    end
-
-    def next_node=(node)
-        @next_node = node
-    end
+  def initialize(item)
+    @item = item
+  end
 end
