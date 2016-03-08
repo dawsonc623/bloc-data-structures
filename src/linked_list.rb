@@ -1,6 +1,8 @@
 require_relative "./linked_list/node"
 
 class LinkedList
+    attr_reader :length
+
     def append_item(item)
         new_node = Node.new(item)
 
@@ -59,7 +61,7 @@ class LinkedList
     end
 
     def remove_item(item)
-        if (@length > 1)
+        if (@length > 2)
             contained = false
             previous_node = nil
             possible_node = @front_node
@@ -80,6 +82,14 @@ class LinkedList
                 else
                     previous_node.next_node = possible_node.next_node
                 end
+            else
+                raise ArgumentError, "Item is not present"
+            end
+        elsif (@length == 2)
+            if (@front_node.item == item)
+                @front_node = @back_node
+            elsif (@back_node.item == item)
+                @back_node = @front_node
             else
                 raise ArgumentError, "Item is not present"
             end
