@@ -74,7 +74,7 @@ class LinkedList
 
       raise ArgumentError, 'Item is not present' unless contained
 
-      # First item shoud be removed
+      # First item shoud be removed if there is no previous node
       if previous_node.nil?
         @front_node = @front_node.next_node
       else
@@ -89,7 +89,7 @@ class LinkedList
         raise ArgumentError, 'Item is not present'
       end
     elsif @length == 1
-      raise ArgumentError, 'Item is not present' if @front_node.item == item
+      raise ArgumentError, 'Item is not present' unless @front_node.item == item
 
       @front_node = nil
       @back_node  = nil
