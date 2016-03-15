@@ -68,7 +68,7 @@ class LinkedList
   def remove_item_at(index)
     raise IndexError, 'Index is out of range' if index >= @nodes.length
 
-    if @nodes.front_node.item == item
+    if index == 0
       remove_front
     else
       previous_node = @nodes.get_node_at(index - 1)
